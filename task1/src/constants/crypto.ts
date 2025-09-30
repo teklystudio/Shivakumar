@@ -1,0 +1,42 @@
+// src/constants/crypto.ts
+
+export const ALL_SUPPORTED_COINS = [
+  { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC' },
+  { id: 'ethereum', name: 'Ethereum', symbol: 'ETH' },
+  { id: 'dogecoin', name: 'Dogecoin', symbol: 'DOGE' },
+  { id: 'solana', name: 'Solana', symbol: 'SOL' },
+  { id: 'bonk', name: 'Bonk', symbol: 'BONK' },
+  { id: 'pump-fun', name: 'Pump.fun', symbol: 'PUMP' },
+  { id: 'renzo', name: 'Renzo', symbol: 'REZ' },
+  { id: 'qubic', name: 'Qubic', symbol: 'QUBIC' },
+  { id: 'eclipse-es', name: 'Eclipse (ES)', symbol: 'ES' },
+  { id: 'osaka-protocol', name: 'Osaka Protocol', symbol: 'OSAK' },
+  { id: 'pudgy-penguins', name: 'Pudgy Penguins', symbol: 'PENGU' },
+  { id: 'pepe', name: 'Pepe', symbol: 'PEPE' },
+  { id: 'aerodrome-finance', name: 'Aerodrome Finance', symbol: 'AERO' },
+  { id: 'xrp', name: 'XRP', symbol: 'XRP' },
+  { id: 'sui', name: 'Sui', symbol: 'SUI' },
+  { id: 'sei', name: 'Sei', symbol: 'SEI' },
+];
+
+export const ALL_SUPPORTED_CURRENCIES = [
+  { id: 'usd', name: 'US Dollar', symbol: '$' },
+  { id: 'inr', name: 'Indian Rupee', symbol: '₹' },
+  { id: 'eur', name: 'Euro', symbol: '€' },
+  { id: 'rub', name: 'Russian Ruble', symbol: '₽' },
+  { id: 'sar', name: 'Saudi Riyal', symbol: '﷼' },
+  { id: 'sek', name: 'Swedish Krona', symbol: 'kr' },
+  { id: 'sgd', name: 'Singapore Dollar', symbol: 'S$' },
+  { id: 'thb', name: 'Thai Baht', symbol: '฿' },
+  { id: 'try', name: 'Turkish Lira', symbol: '₺' },
+  { id: 'twd', name: 'New Taiwan Dollar', symbol: 'NT$' },
+  { id: 'uah', name: 'Ukrainian hryvnia', symbol: '₴' },
+  { id: 'vef', name: 'Venezuelan Bolívar Fuerte', symbol: 'Bs.F' },
+  { id: 'vnd', name: 'Vietnamese đồng', symbol: '₫' },
+  { id: 'zar', name: 'South African Rand', symbol: 'R' },
+  { id: 'xdr', name: 'IMF Special Drawing Rights', symbol: 'XDR' },
+  { id: 'xag', name: 'Silver - Troy Ounce', symbol: 'XAG' },
+  { id: 'xau', name: 'Gold - Troy Ounce', symbol: 'XAU' },
+  { id: 'bits', name: 'Bits (Bitcoin unit)', symbol: 'bits' },
+  { id: 'sats', name: 'Satoshi (Bitcoin unit)', symbol: 'sats' },
+];

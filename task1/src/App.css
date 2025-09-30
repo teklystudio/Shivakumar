@@ -1,0 +1,6 @@
+html, body, #root { /* #root is common in Create React App, adjust if your root div has a different ID */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll if content overflows */
+}

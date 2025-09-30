@@ -1,0 +1,404 @@
+
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  align-items: flex-start; /* Optional: align top */
+  flex-wrap: wrap; /* Optional: support responsive wrap */
+}
+
+
+
+/* Left Section: Wrapper for Chart and Analysis */
+
+
+.chart-and-analysis-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin:0;
+}
+
+/* Chart Wrapper - Contains chart, coin info, and title. This is the themeable box. */
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-x: auto; 
+  overflow-y: auto; 
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+/* Dark Mode Styles for the Chart Wrapper and its contents */
+.chart-wrapper.dark-mode {
+  background-color: #1e1e1e; /* Dark background for the chart section */
+  color: #fff; /* White text for the chart section */
+}
+
+/* Transparent Background for the Chart Wrapper */
+.chart-wrapper.transparent-bg {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  backdrop-filter: blur(8px);
+}
+
+.chart-wrapper.dark-mode.transparent-bg {
+  background-color: rgba(30, 30, 30, 0.5); /* Semi-transparent dark */
+}
+
+/* Outlined Style for the Chart Wrapper */
+.chart-wrapper.outlined {
+  border: 1px solid gray;
+}
+
+.chart-wrapper.dark-mode.outlined {
+  border-color: #555; /* Lighter border in dark mode */
+}
+
+
+/* Chart Header Info (for main chart title/subtitle) */
+
+
+.chart-header-info .chart-title {
+  margin: 0  rem ;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: inherit; /* Inherit from chart-wrapper */
+}
+
+.chart-header-info .chart-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9em;
+  color: #777; /* Default light color */
+}
+
+.chart-wrapper.dark-mode .chart-header-info .chart-subtitle {
+  color: #bbb; /* Dark mode color */
+}
+
+
+/* Coin Info Header (below main title, above chart) */
+.coin-info {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  /* border-bottom: 1px solid #eee;  */
+  height:20 %;/* Separator line */
+}
+
+.chart-wrapper.dark-mode .coin-info {
+  border-bottom-color: #333; /* Dark mode border color */
+}
+
+.coin-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.coin-logo {
+  width: 32px; /* Standard size for coin logo */
+  height: 32px;
+  border-radius: 50%;
+}
+
+.coin-header h3 {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: inherit; /* Inherit color from chart-wrapper */
+}
+
+.coin-symbol {
+  font-size: 1em;
+  color: #777; /* Default light mode color */
+}
+
+.chart-wrapper.dark-mode .coin-symbol {
+  color: #bbb; /* Dark mode color */
+}
+
+.coin-price-info {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.current-price {
+  font-size: 2.2em; /* Larger price font */
+  font-weight: 700;
+  color: inherit; /* Inherit color from chart-wrapper */
+}
+
+.price-change-24h {
+  font-size: 1.2em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+
+/* Chart Area - this is where the Recharts chart lives */
+.chart-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.loading-message,
+.error-message,
+.no-data-message {
+  text-align: center;
+  padding: 20px;
+  color: #666; /* Default light mode color */
+}
+.chart-wrapper.dark-mode .loading-message,
+.chart-wrapper.dark-mode .error-message,
+.chart-wrapper.dark-mode .no-data-message {
+  color: #aaa; /* Dark mode color */
+}
+.error-message {
+    color: #ea3943; /* Red for error */
+}
+
+/* Analysis Area - Now directly below the chart, within .chart-and-analysis-section */
+.analysis-area {
+  display: flex;
+  width:40%;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem; /* Padding inside analysis area */
+   /* Light background for analysis area */
+ /* Subtle inner shadow */
+ ; /* Light border */
+}
+ 
+.analysis-title {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #000; /* Explicitly light mode for analysis */
+}
+
+.generate-analysis-button {
+  padding: 0.75rem 1.25rem;
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: #8884d8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.generate-analysis-button:hover:not(:disabled) {
+  background-color: #6a66c8;
+}
+
+.generate-analysis-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.analysis-text {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* ❌ Remove these to avoid local scrolling */
+  /* max-height: 200px; */
+  /* overflow-y: auto; */
+}
+
+
+.controls-area-wrapper {
+  background-color: white;
+  flex: 1 1 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 1rem 1rem 1rem 1rem;
+  padding-top: 120px;
+
+  overflow: hidden;
+ 
+  box-sizing: border-box;
+}
+
+
+
+
+.controls-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.control-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.95em;
+  color: #000; /* Explicitly light mode for controls */
+}
+.control-select,
+.control-input {
+  padding: 0.6rem 0.8rem; /* More padding for better feel */
+  margin-top: 0.4rem;
+  border: 1px solid #ccc; /* Default light mode border */
+  border-radius: 6px;
+  background-color: #f9f9f9; /* Default light mode background */
+  color: #333; /* Default light mode text */
+  font-size: 0.9em;
+  transition: border-color 0.2s ease;
+}
+
+.control-select:focus,
+.control-input:focus {
+  outline: none;
+  border-color: #8884d8; /* Highlight on focus */
+}
+
+.input-hint {
+    font-size: 0.8em;
+    color: #777; /* Default light mode color */
+    margin-top: 0.2rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem; /* Gap between checkboxes */
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+  flex-direction: row; /* Checkbox label and input on same row */
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal; /* Reset font weight */
+  cursor: pointer;
+  color: #000; /* Explicitly light mode for controls */
+}
+
+.control-checkbox {
+  /* Default browser styling for checkbox */
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+
+
+.analysis-text-area{
+  margin-top: 1rem;
+ 
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 900px) {
+  .chart-container {
+    flex-direction: column; /* Stack chart and controls vertically */
+    padding: 1.25rem;
+    gap: 2rem; /* More gap when stacked */
+    min-width: unset; /* Allow container to shrink on small screens */
+  }
+
+  .chart-and-analysis-section {
+    width: 100%;
+    min-width: unset;
+    flex-basis: auto;
+  }
+.controls-area-wrapper { 
+      padding-top:0px;/* Renamed from controls-and-analysis-area */
+        gap: 1rem; /* Reduce gap when stacked on small screens */
+    }
+  .chart-wrapper {
+    width: 100%;
+    min-width: unset; /* Allow shrinking */
+    flex-basis: auto; /* Reset flex-basis on small screens */
+    gap: 1.25rem;
+  }
+
+  .coin-header h3 {
+    font-size: 1.4em;
+  }
+  .current-price {
+    font-size: 1.8em;
+  }
+  .price-change-24h {
+    font-size: 1em;
+  }
+
+  .chart-area {
+    width: 100%; /* Take full width */
+  }
+
+  
+
+  .analysis-area {
+    padding-top: 1.5rem; /* Maintain separation */
+    border-top: 1px solid #eee; /* Add top border for separation */
+  }
+}
+
+@media (max-width: 550px) {
+    .chart-container {
+        padding: 1rem;
+    }
+    .coin-header h3 {
+        font-size: 1.2em;
+    }
+    .current-price {
+        font-size: 1.5em;
+    }
+    .price-change-24h {
+        font-size: 0.9em;
+    }
+    .chart-area {
+        min-height: 120px; /* Even smaller min-height for very small screens */
+    }
+    .chart-wrapper {
+        gap: 1rem;
+    }
+    .coin-info {
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+    .controls-area-wrapper { 
+      padding-top:0px;/* Renamed from controls-and-analysis-area */
+        gap: 1rem; /* Reduce gap when stacked on small screens */
+    }
+    .controls-area {
+        gap: 0.8rem;
+    }
+    .analysis-area {
+        padding-top: 1rem; /* Reduce padding when stacked on small screens */
+    }
+}
